@@ -6,21 +6,16 @@ namespace Expressions
 {
     public class RpnExpression
     {
-        public RpnExpression(Queue<Argument> arguments, Stack<Operator> operators)
+        public RpnExpression(IEnumerable<Token> tokens)
         {
-            if (arguments == null)
+            if (tokens == null)
             {
-                throw new ArgumentNullException(nameof(arguments));
+                throw new ArgumentNullException(nameof(tokens));
             }
-
-            if (operators == null)
+            
+            if (!tokens.Any())
             {
-                throw new ArgumentNullException(nameof(operators));
-            }
-
-            if (!arguments.Any())
-            {
-                throw new ArgumentException("Arguments list cannot be empty");
+                throw new ArgumentException("tokens list cannot be empty");
             }
         }
 
