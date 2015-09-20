@@ -9,6 +9,15 @@ namespace ExpressionTests
     public class SimpleExpressionTests
     {
         [Test]
+        public void ReturnsLoneArgumentsValue()
+        {
+            var number = 1234.567;
+            var tokens = new Token[] { new Argument(number) };
+
+            Assert.AreEqual(number, Calculate(tokens));
+        }
+
+        [Test]
         public void CalculatesSimpleSum()
         {
             var tokens = new Token[]

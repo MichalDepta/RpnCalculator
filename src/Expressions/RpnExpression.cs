@@ -59,6 +59,11 @@ namespace Expressions
 
         private Argument ExecuteOperator(Operator op, Stack<Argument> stack)
         {
+            if (stack.Count < 2)
+            {
+                throw new InvalidOperationException("Too few arguments for operator");
+            }
+
             var arg2 = stack.Pop();
             var arg1 = stack.Pop();
 
