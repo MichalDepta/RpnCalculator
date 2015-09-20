@@ -7,9 +7,6 @@
             return new Argument(arg1.Value + arg2.Value);
         }
 
-        protected override string GetStringRepresentation()
-        {
-            return "+";
-        }
+        protected override string GetStringRepresentation() => "+";
     }
 }

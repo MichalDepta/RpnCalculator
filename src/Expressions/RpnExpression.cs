@@ -40,6 +40,11 @@ namespace Expressions
             return stack.Pop().Value;
         }
 
+        public override string ToString()
+        {
+            return _tokens.Select(t => t.ToString()).Aggregate((a, v) => a += $" {v}").Trim();
+        }
+
         private void HandleToken(Token token, Stack<Argument> stack)
         {
             switch (token.Type)

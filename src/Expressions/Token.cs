@@ -9,10 +9,7 @@
 
         public TokenType Type { get; }
 
-        public override string ToString()
-        {
-            return GetStringRepresentation();
-        }
+        public override string ToString() => GetStringRepresentation();
 
         protected abstract string GetStringRepresentation();
 

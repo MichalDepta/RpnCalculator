@@ -11,9 +11,6 @@ namespace Expressions
 
         public double Value { get; }
 
-        protected override string GetStringRepresentation()
-        {
-            return Value.ToString(CultureInfo.InvariantCulture);
-        }
+        protected override string GetStringRepresentation() => Value.ToString(CultureInfo.InvariantCulture);
     }
 }
