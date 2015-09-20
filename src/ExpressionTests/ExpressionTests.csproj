@@ -62,7 +62,8 @@
   <ItemGroup>
     <Compile Include="ExpressionCreationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SumTests.cs" />
+    <Compile Include="OperatorTests\SumTests.cs" />
+    <Compile Include="SimpleExpressionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

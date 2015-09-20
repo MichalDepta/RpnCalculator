@@ -6,6 +6,6 @@
         {
         }
 
-        public abstract double CalculateResult(double arg1, double arg2);
+        public abstract Argument CalculateResult(Argument arg1, Argument arg2);
     }
 }

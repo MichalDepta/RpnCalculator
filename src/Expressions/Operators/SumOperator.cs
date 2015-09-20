@@ -2,9 +2,9 @@
 {
     public class SumOperator : Operator
     {
-        public override double CalculateResult(double arg1, double arg2)
+        public override Argument CalculateResult(Argument arg1, Argument arg2)
         {
-            return arg1 + arg2;
+            return new Argument(arg1.Value + arg2.Value);
         }
 
         protected override string GetStringRepresentation()

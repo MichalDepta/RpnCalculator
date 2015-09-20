@@ -1,7 +1,8 @@
-﻿using Expressions.Operators;
+﻿using Expressions;
+using Expressions.Operators;
 using NUnit.Framework;
 
-namespace ExpressionTests
+namespace ExpressionTests.OperatorTests
 {
     [TestFixture]
     public class SumTests
@@ -14,9 +15,9 @@ namespace ExpressionTests
         [TestCase(-84.97, 10, -74.97)]
         public void CalculatesSum(double arg1, double arg2, double expectedResult)
         {
-            var result = _sum.CalculateResult(arg1, arg2);
+            var result = _sum.CalculateResult(new Argument(arg1), new Argument(arg2));
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, result.Value);
         }
     }
 }
