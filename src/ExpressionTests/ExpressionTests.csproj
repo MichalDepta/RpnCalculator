@@ -63,6 +63,8 @@
     <Compile Include="ExpressionCreationTests.cs" />
     <Compile Include="ExpressionRepresentationTests.cs" />
     <Compile Include="InvalidExpressionTests.cs" />
+    <Compile Include="OperatorTests\DivisionTests.cs" />
+    <Compile Include="OperatorTests\MultiplicationTests.cs" />
     <Compile Include="OperatorTests\SubtractionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OperatorTests\SumTests.cs" />

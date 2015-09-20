@@ -38,6 +38,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Argument.cs" />
+    <Compile Include="Operators\DivisionOperator.cs" />
+    <Compile Include="Operators\MultiplicationOperator.cs" />
     <Compile Include="Operators\SubtractOperator.cs" />
     <Compile Include="Operators\SumOperator.cs" />
     <Compile Include="RpnExpression.cs" />
