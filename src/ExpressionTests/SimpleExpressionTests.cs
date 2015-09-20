@@ -14,7 +14,7 @@ namespace ExpressionTests
             var number = 1234.567;
             var tokens = new Token[] { new Argument(number) };
 
-            Assert.AreEqual(number, Calculate(tokens));
+            CheckResult(tokens, number);
         }
 
         [Test]
@@ -27,13 +27,41 @@ namespace ExpressionTests
                 new SumOperator()
             };
 
-            Assert.AreEqual(9, Calculate(tokens));
+            CheckResult(tokens, 9);
         }
 
-        private double Calculate(IEnumerable<Token> expressionTokens)
+        [Test]
+        public void CalculatesSimpleDivision()
         {
-            var expression = new RpnExpression(expressionTokens);
-            return expression.CalculateResult();
+            var tokens = new Token[]
+            {
+                new Argument(18.9),
+                new Argument(3),
+                new DivisionOperator()
+            };
+
+            CheckResult(tokens, 6.3);
+        }
+
+        [Test]
+        public void ResolvesMultipleOperatorExpression()
+        {
+            var tokens = new Token[]
+            {
+                new Argument(47.5),
+                new Argument(38.5),
+                new SubtractOperator(),
+                new Argument(2),
+                new MultiplicationOperator()
+            };
+
+            CheckResult(tokens, 18);
+        }
+
+        private void CheckResult(IEnumerable<Token> tokens, double expectedResult)
+        {
+            var expression = new RpnExpression(tokens);
+            Assert.AreEqual(expectedResult, expression.CalculateResult());
         }
     }
 }
