@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionTests", "Expressi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnConsole", "RpnConsole\RpnConsole.csproj", "{C47A84DE-076B-416B-B6D5-CD5E45F6E523}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD6377AA-4C19-46F3-8803-A7737F6399C1}"
+	ProjectSection(SolutionItems) = preProject
+		build.bat = build.bat
+		build.fsx = build.fsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
