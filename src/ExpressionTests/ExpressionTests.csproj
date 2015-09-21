@@ -69,6 +69,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OperatorTests\SumTests.cs" />
     <Compile Include="SimpleExpressionTests.cs" />
+    <Compile Include="TokenFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

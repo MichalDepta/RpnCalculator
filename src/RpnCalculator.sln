@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expressions", "Expressions\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionTests", "ExpressionTests\ExpressionTests.csproj", "{795F1978-0298-44FD-8CA2-0E2654C3DBAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnConsole", "RpnConsole\RpnConsole.csproj", "{C47A84DE-076B-416B-B6D5-CD5E45F6E523}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{795F1978-0298-44FD-8CA2-0E2654C3DBAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{795F1978-0298-44FD-8CA2-0E2654C3DBAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{795F1978-0298-44FD-8CA2-0E2654C3DBAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C47A84DE-076B-416B-B6D5-CD5E45F6E523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C47A84DE-076B-416B-B6D5-CD5E45F6E523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C47A84DE-076B-416B-B6D5-CD5E45F6E523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C47A84DE-076B-416B-B6D5-CD5E45F6E523}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
