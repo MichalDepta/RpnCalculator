@@ -5,7 +5,7 @@ open Fake.MSBuildHelper
 open Fake.NUnitSequential
 
 let solutionFile = !!"RpnCalculator.sln"
-let testDlls = !!"./*Tests/*Tests.dll"
+let testDlls = !!"./*Tests/bin/Release/*Tests.dll"
 
 Target "Hello" (fun _ -> 
     trace "Hello from FAKE"
@@ -32,7 +32,16 @@ Target "Clean" (fun _ ->
     |> ignore
 )
 
+Target "RestorePackages" (fun _ ->
+    RestorePackages()
+)
+
 "Clean"
 =?> ("Build", hasBuildParam "Clean")
+
+"RestorePackages"
+==> "Build"
+==> "Test"
+
 
 RunTargetOrDefault "Hello"
