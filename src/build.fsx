@@ -3,12 +3,33 @@
 open Fake
 open Fake.MSBuildHelper
 open Fake.NUnitSequential
+open Fake.AssemblyInfoFile
+
+let majorVersion = 1
+let minorVersion = 0
 
 let solutionFile = !!"RpnCalculator.sln"
 let testDlls = !!"./*Tests/bin/Release/*Tests.dll"
+let rpnConsoleAssemblyInfo = "./RpnConsole/Properties/AssemblyInfo.cs"
 
 Target "Hello" (fun _ -> 
     trace "Hello from FAKE"
+)
+
+Target "UpdateVersion" (fun _ ->
+    let productVersion = 
+        getBuildParam "BuildNumber"
+        |> sprintf "%d.%d.%s" majorVersion minorVersion
+
+    CreateCSharpAssemblyInfo rpnConsoleAssemblyInfo
+        [
+            Attribute.Title "RpnConsole"
+            Attribute.Description "RPN Calculator Console App"
+            Attribute.Version productVersion
+            Attribute.FileVersion productVersion
+            Attribute.Company "FDD"
+            Attribute.Copyright "Copyright © FDD 2015"
+        ]
 )
 
 Target "Build" (fun _ ->
@@ -21,7 +42,7 @@ Target "Test" (fun _ ->
     testDlls
     |> NUnit (fun defaults -> 
                 {defaults with 
-                    OutputFile = "test-results.xml"
+                    OutputFile = "TestResult.xml"
                     ErrorLevel = DontFailBuild
                 })
 )
@@ -36,8 +57,12 @@ Target "RestorePackages" (fun _ ->
     RestorePackages()
 )
 
+
 "Clean"
 =?> ("Build", hasBuildParam "Clean")
+
+"UpdateVersion"
+=?> ("Build", hasBuildParam "BuildNumber")
 
 "RestorePackages"
 ==> "Build"
