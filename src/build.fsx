@@ -12,8 +12,29 @@ let solutionFile = !!"RpnCalculator.sln"
 let testDlls = !!"./*Tests/bin/Release/*Tests.dll"
 let rpnConsoleAssemblyInfo = "./RpnConsole/Properties/AssemblyInfo.cs"
 
-Target "Hello" (fun _ -> 
-    trace "Hello from FAKE"
+Target "Clean" (fun _ ->
+    solutionFile
+    |> MSBuildRelease null "Clean"
+    |> ignore
+)
+
+Target "RestorePackages" (fun _ ->
+    RestorePackages()
+)
+
+Target "Build" (fun _ ->
+    solutionFile
+    |> MSBuildRelease null "Build"
+    |> ignore
+)
+
+Target "Test" (fun _ ->
+    testDlls
+    |> NUnit (fun defaults -> 
+                {defaults with 
+                    OutputFile = "TestResult.xml"
+                    ErrorLevel = DontFailBuild
+                })
 )
 
 Target "UpdateVersion" (fun _ ->
@@ -32,32 +53,6 @@ Target "UpdateVersion" (fun _ ->
         ]
 )
 
-Target "Build" (fun _ ->
-    solutionFile
-    |> MSBuildRelease null "Build"
-    |> ignore
-)
-
-Target "Test" (fun _ ->
-    testDlls
-    |> NUnit (fun defaults -> 
-                {defaults with 
-                    OutputFile = "TestResult.xml"
-                    ErrorLevel = DontFailBuild
-                })
-)
-
-Target "Clean" (fun _ ->
-    solutionFile
-    |> MSBuildRelease null "Clean"
-    |> ignore
-)
-
-Target "RestorePackages" (fun _ ->
-    RestorePackages()
-)
-
-
 "Clean"
 =?> ("Build", hasBuildParam "Clean")
 
@@ -68,5 +63,4 @@ Target "RestorePackages" (fun _ ->
 ==> "Build"
 ==> "Test"
 
-
-RunTargetOrDefault "Hello"
+RunTargetOrDefault "Build"
