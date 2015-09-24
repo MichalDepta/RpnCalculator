@@ -1,1 +1,1 @@
-﻿
+﻿printfn "Script is running!"
